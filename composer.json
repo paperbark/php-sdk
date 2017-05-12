@@ -1,0 +1,25 @@
+{
+	"name": "paperbark/php-sdk",
+	"description": "PaperBark SDK for PHP",
+	"version": "1.0",
+	"keywords": ["paperbark", "pdf", "sdk"],
+	"type": "library",
+	"homepage": "https://github.com/paperbark/paperbark-php-sdk",
+	"license": "CC BY 4.0",
+	"authors": [
+		{
+			"name": "PaperBark",
+			"homepage": "https://github.com/paperbark/paperbark-php-sdk/contributors"
+		}
+	],
+	"require": {
+		"php": "^5.4|^7.0",
+		"ext-curl": "*",
+		"lib-curl": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"PaperBark\\": "src/PaperBark/"
+		}
+	}
+}
