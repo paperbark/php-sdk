@@ -1,6 +1,6 @@
 # PaperBark
 This repository contains the open source code for the PaperBark PHP Development Kit.
-For more information on how to use PaperBark or the PaperBark API please look at our [Documentation](https://github.com/paperbark/documentation/blob/master/README.md) repository.
+For more information on how to use PaperBark or the PaperBark API please look at our [Documentation](https://github.com/paperbark/documentation/blob/master/readme.md) repository.
 
 ## Installation
 The recommended way of installing the SDK is using [Composer](https://getcomposer.org/). Run this command:
