@@ -10,11 +10,14 @@ composer require paperbark/php-sdk
 
 ## Usage
 ```php
-// Create a new PaperBark instance
-$pb = new PaperBark\PaperBark('{token}');
+// Create a new API instance (replace with your own API token)
+$api = new PaperBark\API('{token}');
 
 // Convert HTML to PDF
-echo $pb->convert('<strong>PaperBark PHP SDK</strong>');
+$pdf = new PaperBark\PDF();
+$pdf->addPage('<strong>PaperBark PHP SDK</strong>');
+
+echo $api->pdf($pdf);
 ```
 
 ## License

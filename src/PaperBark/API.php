@@ -2,7 +2,7 @@
 
 namespace PaperBark;
 
-class PaperBark
+class API
 {
 	private $url = 'https://api.paperbark.io/pdf';
 	private $token;
@@ -18,18 +18,17 @@ class PaperBark
 	}
 
 	/**
-	 * Convert HTML to PDF using PaperBark API
-	 *
-	 * @param string $document - HTML Document
+	 * Create PDF using PaperBark API
+	 * @param PDF $pdf
 	 * @return string - PDF Document
 	 *
 	 * @throws \Exception
 	 */
-	public function convert($document)
+	public function pdf($pdf)
 	{
 		$headers = [
 			'Accept-Encoding: gzip, deflate',
-			'Content-Type: text/html',
+			'Content-Type: application/json',
 			'Authorization: Bearer ' . $this->token
 		];
 
@@ -37,7 +36,7 @@ class PaperBark
 		curl_setopt_array($ch, [
 			CURLOPT_URL => $this->url,
 			CURLOPT_HTTPHEADER => $headers,
-			CURLOPT_POSTFIELDS => $document,
+			CURLOPT_POSTFIELDS => json_encode($pdf->serialize()),
 			CURLOPT_USERAGENT => 'PaperBark/SDK (PHP)',
 			CURLOPT_HEADER => false,
 			CURLOPT_CONNECTTIMEOUT => 10,
@@ -76,8 +75,7 @@ class PaperBark
 
 				if (isset($json['message']))
 					$error = $json['message'];
-			} else if (isset($headers['x-error']))
-				$error = $headers['x-error'];
+			}
 
 			if ($error !== null)
 				throw new \Exception($error);
